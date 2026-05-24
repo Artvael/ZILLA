@@ -103,6 +103,18 @@
                 Statistics
             </button>
         </nav>
+
+        <!-- Theme Switcher -->
+        <div class="sidebar-themes">
+            <span class="sidebar-themes-title">THEMES</span>
+            <div class="theme-options">
+                <button class="theme-opt active" data-theme="magenta" title="Cyberpunk Magenta"></button>
+                <button class="theme-opt" data-theme="emerald" title="Toxic Emerald"></button>
+                <button class="theme-opt" data-theme="ice" title="Ice-Neon Blue"></button>
+                <button class="theme-opt" data-theme="synthwave" title="Synthwave Amber"></button>
+            </div>
+        </div>
+
         <div class="sidebar-user">
             <img src="/images/mascot.png" alt="User" class="sidebar-user-avatar">
             <div class="sidebar-user-info">

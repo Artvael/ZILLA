@@ -10,6 +10,7 @@ const App = {
 
   async init() {
     this.bindEvents();
+    this.loadTheme();
     try {
       const res = await this.api('GET', '/api/user');
       if (res.success) { this.user = res.user; this.showScreen('dashboard'); }
@@ -177,6 +178,11 @@ const App = {
         e.preventDefault();
         this.openTaskModal();
       }
+    });
+
+    // Theme switcher
+    document.querySelectorAll('.theme-opt').forEach(btn => {
+      btn.addEventListener('click', () => this.setTheme(btn.dataset.theme));
     });
   },
 
@@ -601,6 +607,23 @@ const App = {
       this.showToast(newStatus ? 'Task completed! 🎉' : 'Task reopened');
       this.showTaskDetail(this.currentTaskId);
     } catch (err) { this.showToast(err.message, 'error'); }
+  },
+
+  // ===== THEME SWITCHER =====
+  setTheme(theme) {
+    document.body.classList.remove('theme-emerald', 'theme-ice', 'theme-synthwave');
+    if (theme && theme !== 'magenta') {
+      document.body.classList.add('theme-' + theme);
+    }
+    document.querySelectorAll('.theme-opt').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.theme === theme);
+    });
+    localStorage.setItem('zilla-theme', theme);
+  },
+
+  loadTheme() {
+    const saved = localStorage.getItem('zilla-theme') || 'magenta';
+    this.setTheme(saved);
   },
 
   escHtml(s) {
