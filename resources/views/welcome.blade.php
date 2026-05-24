@@ -10,6 +10,13 @@
 </head>
 <body>
 
+<!-- Background Glowing Orbs -->
+<div class="bg-orbs">
+    <div class="bg-orb-1"></div>
+    <div class="bg-orb-2"></div>
+    <div class="bg-orb-3"></div>
+</div>
+
 <!-- Toast Container -->
 <div id="toast-container" class="toast-container"></div>
 
